@@ -15,33 +15,33 @@ public class UserController {
     @Resource
     private UserService service;
 
-//    @GetMapping("/user-form")
-////    public String userForm() {
-////        return "demo/demo-form";
-////    }
-////
-////
-////    @GetMapping("/user-show")
-////    public String show(Model model, @RequestParam("name") String name, @RequestParam("age") int age) {
-////        model.addAttribute("name", name);
-////        return "demo/demo-show";
-////    }
-////
-////    //    若參數名稱同屬性名稱spring可自動封裝成bean
-////    @PostMapping("/user-show")
-////    public String postShow(Model model, User user) {
-////        model.addAttribute("name", user.getName());
-////        return "demo/demo-show";
-////    }
+    @GetMapping("/user-test")
+    public String userForm() {
+        return "user/user-test";
+    }
+//
+//
+//    @GetMapping("/user-show")
+//    public String show(Model model, @RequestParam("name") String name, @RequestParam("age") int age) {
+//        model.addAttribute("name", name);
+//        return "demo/demo-show";
+//    }
+//
+//    //    若參數名稱同屬性名稱spring可自動封裝成bean
+//    @PostMapping("/user-show")
+//    public String postShow(Model model, user user) {
+//        model.addAttribute("name", user.getName());
+//        return "demo/demo-show";
+//    }
 
     @PostMapping("/user-insert")
     public String insert(Model model, User user) {
         service.insert(user);
-        return "User/user-show";
+        return "user/user-show";
     }
 
 //    @PostMapping("/user-update")
-//    public String update(Model model, User user) {
+//    public String update(Model model, user user) {
 //        service.update(user);
 //        return "demo/demo-form";
 //    }
