@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.yunchun</groupId>
-	<artifactId>spring-boot-1st</artifactId>
+	<artifactId>spring-boot-2nd</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-boot-1st</name>
 	<description>Demo project for Spring Boot</description>
