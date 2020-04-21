@@ -7,6 +7,6 @@
 </head>
 <body>
 <h2 class="hello-title">Hello ${name}!</h2>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="/js/main.js"></script>
-</body>
 </html>

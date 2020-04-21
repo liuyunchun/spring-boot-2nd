@@ -36,25 +36,28 @@ public class UserController {
 
     @PostMapping("/user-insert")
     public String insert(Model model, User user) {
-        service.insert(user);
+        user = service.insert(user);
+        model.addAttribute("user",user);
         return "user/user-show";
     }
 
     @PostMapping("/user-update")
     public String update(Model model, User user) {
-        service.update(user);
+        user = service.update(user);
+        model.addAttribute("user",user);
         return "user/user-show";
     }
 
     @GetMapping("/user-find")
     public String find(Model model, @RequestParam("id") String id) {
-        service.find(id);
+        User user = service.find(id);
+        model.addAttribute("user",user);
         return "user/user-show";
     }
 
     @GetMapping("/user-delete")
     public String delete(Model model, @RequestParam("id") String id) {
         service.delete(id);
-        return "user/user-show";
+        return "user/user-test";
     }
 }

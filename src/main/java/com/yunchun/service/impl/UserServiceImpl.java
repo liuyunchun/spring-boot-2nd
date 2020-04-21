@@ -27,13 +27,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User find(String id) {
-        System.out.println("修改前動手腳");
+        System.out.println("查詢前動手腳");
         return dao.find(id);
     }
 
     @Override
     public void delete(String id) {
-        System.out.println("修改前動手腳");
+        System.out.println("刪除前動手腳");
         dao.delete(id);
     }
 }
