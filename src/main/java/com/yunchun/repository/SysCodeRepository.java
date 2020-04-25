@@ -9,4 +9,6 @@ public interface SysCodeRepository extends JpaRepository <SysCode, String> {
 
     SysCode findOneByCode(String code);
 
+    SysCode findOneById(String id);
+
 }
