@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Data
@@ -31,6 +32,8 @@ public class Article {
     private Article parent;
 
     //OneToMany
+    @OneToMany(mappedBy = "id")
+    private List<Article> childrens;
 
     //文章分類標籤，擁有外來鍵，應為Many
     @ManyToOne
@@ -46,8 +49,12 @@ public class Article {
     @Column(name = "create_time_")
     private LocalDateTime createTime;
 
-    @Column(name = "create_id_")
-    private String createId;
+    @ManyToOne
+    @JoinColumn(name = "creater_")
+    private Member creater;
+
+//    @Column(name = "create_id_")
+//    private String createId;
 
     @Column(name = "update_time_")
     private LocalDateTime updateTime;

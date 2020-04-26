@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Data
@@ -29,4 +30,8 @@ public class Member {
     @ManyToOne
     @JoinColumn(name = "board_master_")
     private SysCode boardMaster;
+
+    //OneToMany
+    @OneToMany(mappedBy = "id")
+    private List<Member> articles;
 }
