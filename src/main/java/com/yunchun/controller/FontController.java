@@ -9,14 +9,20 @@ public class FontController {
     public String indexForm() {
         return "font/index";
     }
+    //列出文章 BY 次數(count)
+    //點擊後要載入文章內容(get詳細&留言)
 
     @GetMapping("/single")
     public String singleForm() {
         return "font/single";
     }
+    //點擊留言處要寫入留言
+    //自己的文章要可以修改
 
     @GetMapping("/category")
     public String categoryForm() {
         return "font/category";
     }
+    //列出文章 BY 類別
+    //點擊後要載入文章內容(get詳細&留言)
 }

@@ -65,11 +65,11 @@ public class ArticleRepositoryTest {
 
         article.setId("A0001");
         article.setTitle("測試文章功能");
-        article.setSort(Integer.valueOf(0001));
+        article.setSort(1);
         article.setType(Type.ARTICLE);
         article.setCategory(syscode4);
         article.setContent("Mamo的19th新專光射す方へ根本神仙專輯！！");
-        article.setCount(Integer.valueOf(0));
+        article.setCount(0);
         article.setCreater(member_b);
         article.setCreateTime(LocalDateTime.now());
 
