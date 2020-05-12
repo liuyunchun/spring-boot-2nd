@@ -1,9 +1,16 @@
 package com.yunchun.service;
 
-public interface GenericService <T>{
-    T insert (T t);
 
-    T update (T t);
+import org.springframework.data.jpa.repository.JpaRepository;
 
-    void delete (T t);
+import java.util.List;
+
+public interface GenericService<T, R extends JpaRepository<T, String>> {
+    T insert(T t);
+
+    T update(T t);
+
+    void delete(T t);
+
+    List<T> findAll();
 }

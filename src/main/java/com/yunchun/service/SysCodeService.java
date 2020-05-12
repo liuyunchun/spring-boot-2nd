@@ -1,19 +1,14 @@
 package com.yunchun.service;
 
 import com.yunchun.domain.SysCode;
+import com.yunchun.repository.SysCodeRepository;
 
-import java.util.List;
+public interface SysCodeService extends GenericService<SysCode, SysCodeRepository> {
+    SysCode insert(SysCode syscode);
 
-public interface SysCodeService{
-    //extends GenericService<SysCode>
+    SysCode update(SysCode syscode);
 
-    SysCode insert (SysCode syscode);
+    SysCode find(String id);
 
-    SysCode update (SysCode syscode);
-
-    SysCode find (String id);
-
-    List<SysCode> findAll ();
-
-    void delete (SysCode syscode);
+    void delete(SysCode syscode);
 }
