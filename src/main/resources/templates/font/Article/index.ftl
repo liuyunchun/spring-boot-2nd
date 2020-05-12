@@ -134,25 +134,19 @@
                 <table class="table" >
                     <tr>
                         <td>
-                            ID
+                            標題
                         </td>
                         <td>
-                            代號
-                        </td>
-                        <td>
-                            中文
+                            內容
                         </td>
                     </tr>
-                    <#list syscodes as item>
+                    <#list articles as item>
                         <tr>
                             <td>
                                 ${item.id}
                             </td>
                             <td>
-                                ${item.code}
-                            </td>
-                            <td>
-                                ${item.description}
+                                ${item.content}
                             </td>
                         </tr>
                     </#list>

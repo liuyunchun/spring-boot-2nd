@@ -6,6 +6,7 @@ import com.yunchun.service.MemberService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service("com.yunchun.service.impl.MemberServiceImpl")
 public class MemberServiceImpl implements MemberService{
@@ -29,6 +30,10 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
+    public List<Member> findAll() {
+        return memberRepository.findAll();
+    }
+
     public void delete(Member member) {
         memberRepository.delete(member);
     }

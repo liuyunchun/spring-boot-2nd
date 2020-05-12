@@ -131,32 +131,21 @@
     <section class="section wb">
         <div class="container">
             <div class="row">
-                <table class="table" >
-                    <tr>
-                        <td>
-                            ID
-                        </td>
-                        <td>
-                            代號
-                        </td>
-                        <td>
-                            中文
-                        </td>
-                    </tr>
-                    <#list syscodes as item>
-                        <tr>
-                            <td>
-                                ${item.id}
-                            </td>
-                            <td>
-                                ${item.code}
-                            </td>
-                            <td>
-                                ${item.description}
-                            </td>
-                        </tr>
-                    </#list>
-                </table>
+                <form method="post" action="/member/addmember">
+                    id:
+                    <input type="text" name="id"/>
+                    <br>
+                    password:
+                    <input type="text" name="password"/>
+                    <br>
+                    name:
+                    <input type="text" name="name"/>
+                    <br>
+                    e-mail:
+                    <input type="text" name="email"/>
+
+                    <button type="submit" name="add" value="add">送出</button>
+                </form>
             </div><!-- end row -->
         </div><!-- end container -->
     </section>

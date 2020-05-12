@@ -6,6 +6,7 @@ import com.yunchun.service.ArticleService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service("com.yunchun.service.impl.ArticleServiceImpl")
 public class ArticleServiceImpl implements ArticleService{
@@ -26,6 +27,11 @@ public class ArticleServiceImpl implements ArticleService{
     @Override
     public Article find(String id) {
         return articleRepository.findOneById(id);
+    }
+
+    @Override
+    public List<Article> findAll() {
+        return articleRepository.findAll();
     }
 
     @Override

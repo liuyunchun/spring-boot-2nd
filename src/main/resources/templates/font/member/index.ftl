@@ -137,22 +137,22 @@
                             ID
                         </td>
                         <td>
-                            代號
+                            暱稱
                         </td>
                         <td>
-                            中文
+                            信箱
                         </td>
                     </tr>
-                    <#list syscodes as item>
+                    <#list members as item>
                         <tr>
                             <td>
                                 ${item.id}
                             </td>
                             <td>
-                                ${item.code}
+                                ${item.name}
                             </td>
                             <td>
-                                ${item.description}
+                                ${item.email}
                             </td>
                         </tr>
                     </#list>

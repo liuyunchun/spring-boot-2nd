@@ -131,32 +131,18 @@
     <section class="section wb">
         <div class="container">
             <div class="row">
-                <table class="table" >
-                    <tr>
-                        <td>
-                            ID
-                        </td>
-                        <td>
-                            代號
-                        </td>
-                        <td>
-                            中文
-                        </td>
-                    </tr>
-                    <#list syscodes as item>
-                        <tr>
-                            <td>
-                                ${item.id}
-                            </td>
-                            <td>
-                                ${item.code}
-                            </td>
-                            <td>
-                                ${item.description}
-                            </td>
-                        </tr>
-                    </#list>
-                </table>
+                <form method="post" action="/article/addarticle">
+                    title:
+                    <input type="text" name="title"/>
+                    <br>
+                    <#--category:-->
+                    <#--<input type="text" name="category"/>-->
+                    <#--<br>-->
+                    content:
+                    <input type="text" name="content"/>
+
+                    <button type="submit" name="add" value="add">送出</button>
+                </form>
             </div><!-- end row -->
         </div><!-- end container -->
     </section>

@@ -2,6 +2,8 @@ package com.yunchun.controller;
 
 import com.yunchun.domain.SysCode;
 import com.yunchun.repository.SysCodeRepository;
+import com.yunchun.service.SysCodeService;
+import com.yunchun.service.impl.SysCodeServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,15 +16,14 @@ import java.util.List;
 @Controller
 @RequestMapping("/syscode")
 public class SysCodeController {
-
     @Resource
-    private SysCodeRepository sysCodeRepository;
+    private SysCodeServiceImpl sysCodeServiceImpl;
 
     @GetMapping("index")
     public String index(Model model){
-        List<SysCode> syscodes = sysCodeRepository.findAll();
+        List<SysCode> syscodes = sysCodeServiceImpl.findAll();
         model.addAttribute("syscodes", syscodes);
-        return "font/syscode/index";
+        return "/font/syscode/index";
     }
 
     @GetMapping("add")
@@ -35,7 +36,7 @@ public class SysCodeController {
 
     @PostMapping("addsyscode")
     public String addSyscode(Model model, SysCode syscode){
-        sysCodeRepository.save(syscode);
-        return "font/syscode/index";
+        sysCodeServiceImpl.insert(syscode);
+        return "redirect:/syscode/index";
     }
 }
