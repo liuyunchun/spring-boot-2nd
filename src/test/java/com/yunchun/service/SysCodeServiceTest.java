@@ -1,7 +1,7 @@
-package com.yunchun.ServiceImpl;
+package com.yunchun.service;
 
 import com.yunchun.domain.SysCode;
-import com.yunchun.service.SysCodeService;
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,12 +13,12 @@ import javax.annotation.Resource;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 @Transactional
-public class SysCodeServiceImplTest {
+public class SysCodeServiceTest {
     @Resource
     private SysCodeService sysCodeService;
 
     @Test
-    public void test() {
+    public void testSysCode() {
         SysCode syscode1 = new SysCode();
         syscode1.setId("001");
         syscode1.setCode("A");
@@ -26,12 +26,17 @@ public class SysCodeServiceImplTest {
 
         sysCodeService.insert(syscode1);
 
-        SysCode syscode2 = sysCodeService.find("001");
+        SysCode result = sysCodeService.find("001");
+        Assertions.assertThat(result).isNotNull();
+        System.err.println(result);
 
-        syscode2.setDescription("留言");
-        sysCodeService.update(syscode2);
+        result.setDescription("留言");
+        result = sysCodeService.update(result);
+        Assertions.assertThat(result.getDescription()).isEqualTo("留言");
+        System.err.println(result);
 
-        SysCode syscode3 = sysCodeService.find("001");
-        sysCodeService.delete(syscode3);
+        sysCodeService.delete(result);
+        result = sysCodeService.find("001");
+        Assertions.assertThat(result).isNull();
     }
 }

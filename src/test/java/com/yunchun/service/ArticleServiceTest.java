@@ -1,12 +1,10 @@
-package com.yunchun.ServiceImpl;
+package com.yunchun.service;
 
 import com.yunchun.domain.Article;
 import com.yunchun.domain.Member;
 import com.yunchun.domain.SysCode;
 import com.yunchun.domain.Type;
-import com.yunchun.service.impl.ArticleServiceImpl;
-import com.yunchun.service.impl.MemberServiceImpl;
-import com.yunchun.service.impl.SysCodeServiceImpl;
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,15 +19,15 @@ import java.time.format.DateTimeFormatter;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 @Transactional
-public class ArticleServiceImplTest {
+public class ArticleServiceTest {
     @Resource
-    private SysCodeServiceImpl sysCodeServiceImpl;
+    private SysCodeService sysCodeService;
 
     @Resource
-    private MemberServiceImpl memberServiceImpl;
+    private MemberService memberService;
 
     @Resource
-    private ArticleServiceImpl articleServiceImpl;
+    private ArticleService articleService;
 
     @Test
     public void test(){
@@ -41,17 +39,17 @@ public class ArticleServiceImplTest {
         syscode.setCode("A");
         syscode.setDescription("版主");
 
-        sysCodeServiceImpl.insert(syscode);
+        sysCodeService.insert(syscode);
 
         SysCode syscode2 = new SysCode();
         syscode2.setId("002");
         syscode2.setCode("live");
         syscode2.setDescription("音樂版");
 
-        sysCodeServiceImpl.insert(syscode2);
+        sysCodeService.insert(syscode2);
 
-        SysCode syscode3 = sysCodeServiceImpl.find("001");
-        SysCode syscode4 = sysCodeServiceImpl.find("002");
+        SysCode syscode3 = sysCodeService.find("001");
+        SysCode syscode4 = sysCodeService.find("002");
 
         Member member = new Member();
         member.setId("123456");
@@ -61,10 +59,9 @@ public class ArticleServiceImplTest {
         member.setBanTime(date);
         member.setBoardMaster(syscode3);
 
-        memberServiceImpl.insert(member);
+        memberService.insert(member);
 
-        Member member2 = memberServiceImpl.find("123456");
-        //System.out.println(member2.getBoardMaster().getDescription());
+        Member member2 = memberService.find("123456");
 
         Article article = new Article();
         article.setId("A0001");
@@ -77,26 +74,37 @@ public class ArticleServiceImplTest {
         article.setCreater(member2);
         article.setCreateTime(LocalDateTime.now());
 
-        articleServiceImpl.insert(article);
+        articleService.insert(article);
 
-        Article article2 = articleServiceImpl.find("A0001");
-        //System.out.println(article2.getType());
+        Article result1 = articleService.find("A0001");
+        Assertions.assertThat(result1.getTitle()).isEqualTo("BLAZING台版心得");
+        System.err.println(result1);
 
         Article content = new Article();
         content.setId("A0002");
         content.setTitle("補充");
         content.setSort(1);
         content.setType(Type.COMMENT);
-        content.setParent(article2);
+        content.setParent(result1);
         content.setCategory(syscode4);
         content.setContent("隔天的見面會本人也有出現在阿官的照片上，人生第一次追星行程無憾QWQ");
         content.setCount(0);
         content.setCreater(member2);
         content.setCreateTime(LocalDateTime.now());
 
-        articleServiceImpl.insert(content);
+        articleService.insert(content);
+        Article result2 = articleService.find("A0002");
+        Assertions.assertThat(result2).isNotNull();
+        System.err.println(result2);
 
-        Article content2 = articleServiceImpl.find("A0002");
-        System.out.println(content2.getCategory().getDescription());
+        result2.setTitle("見面會也......！");
+        articleService.update(result2);
+        result2 = articleService.find("A0002");
+        Assertions.assertThat(result2.getTitle()).isEqualTo("見面會也......！");
+        System.err.println(result2);
+
+        articleService.delete(result2);
+        result2 = articleService.find("A0002");
+        Assertions.assertThat(result2).isNull();
     }
 }
