@@ -140,9 +140,10 @@
                     <#--<br>-->
                     <#--description:-->
                     <#--<input type="text" name="description"/>-->
+
                     <button type="submit" class="btn btn-default" name="find" value="find">查詢</button>
 
-                    <a href="/syscode/add" class="btn btn-default" name="add" value="add">新增</a>
+                    <a href="add" class="btn btn-default" name="add" value="add">新增</a>
                 </form>
                 <table class="table" >
                     <tr>
@@ -159,24 +160,22 @@
                             功能
                         </td>
                     </tr>
-                    <#list syscodes as item>
-                        <tr>
-                            <td>
-                                ${item.id}
-                            </td>
-                            <td>
-                                ${item.code}
-                            </td>
-                            <td>
-                                ${item.description}
-                            </td>
-                            <td>
-                                <a href="/syscode/update?id=${item.id}" class="btn btn-default" name="update" >修改</a>
+                    <tr>
+                        <td>
+                        ${syscode.id}
+                        </td>
+                        <td>
+                        ${syscode.code}
+                        </td>
+                        <td>
+                        ${syscode.description}
+                        </td>
+                        <td>
+                            <a href="/syscode/update?id=${syscode.id}" class="btn btn-default" name="update" >修改</a>
 
-                                <a href="/syscode/delete?id=${item.id}" class="btn btn-primary" name="delete" >刪除</a>
-                            </td>
-                        </tr>
-                    </#list>
+                            <a href="/syscode/delete?id=${syscode.id}" class="btn btn-primary" name="delete" >刪除</a>
+                        </td>
+                    </tr>
                 </table>
             </div><!-- end row -->
         </div><!-- end container -->

@@ -131,18 +131,18 @@
     <section class="section wb">
         <div class="container">
             <div class="row">
-                <form method="get" action="/syscode/findsyscode">
+                <form method="get" action="/member/findsyscode">
                     id:
                     <input type="text" name="id"/>
-                    <#--<br>-->
-                    <#--code:-->
-                    <#--<input type="text" name="code"/>-->
-                    <#--<br>-->
-                    <#--description:-->
-                    <#--<input type="text" name="description"/>-->
+                <#--<br>-->
+                <#--name:-->
+                <#--<input type="text" name="name"/>-->
+                <#--<br>-->
+                <#--email:-->
+                <#--<input type="text" name="email"/>-->
                     <button type="submit" class="btn btn-default" name="find" value="find">查詢</button>
 
-                    <a href="/syscode/add" class="btn btn-default" name="add" value="add">新增</a>
+                    <a href="/member/add" class="btn btn-default" name="add" value="add">新增</a>
                 </form>
                 <table class="table" >
                     <tr>
@@ -150,33 +150,31 @@
                             ID
                         </td>
                         <td>
-                            代號
+                            暱稱
                         </td>
                         <td>
-                            中文
+                            信箱
                         </td>
                         <td>
                             功能
                         </td>
                     </tr>
-                    <#list syscodes as item>
-                        <tr>
-                            <td>
-                                ${item.id}
-                            </td>
-                            <td>
-                                ${item.code}
-                            </td>
-                            <td>
-                                ${item.description}
-                            </td>
-                            <td>
-                                <a href="/syscode/update?id=${item.id}" class="btn btn-default" name="update" >修改</a>
+                    <tr>
+                        <td>
+                        ${member.id}
+                        </td>
+                        <td>
+                        ${member.name}
+                        </td>
+                        <td>
+                        ${member.email}
+                        </td>
+                        <td>
+                            <a href="/member/update?id=${member.id}" class="btn btn-default" name="update" >修改</a>
 
-                                <a href="/syscode/delete?id=${item.id}" class="btn btn-primary" name="delete" >刪除</a>
-                            </td>
-                        </tr>
-                    </#list>
+                            <a href="/member/delete?id=${member.id}" class="btn btn-primary" name="delete" >刪除</a>
+                        </td>
+                    </tr>
                 </table>
             </div><!-- end row -->
         </div><!-- end container -->

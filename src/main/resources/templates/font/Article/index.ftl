@@ -132,6 +132,16 @@
         <div class="container">
             <div class="row">
                 <table class="table" >
+                    <form method="get" action="/article/findsyscode">
+                        title:
+                        <input type="text" name="title"/>
+                    <#--<br>-->
+                    <#--content:-->
+                    <#--<input type="text" name="content"/>-->
+                        <button type="submit" class="btn btn-default" name="find" value="find">查詢</button>
+
+                        <a href="/article/add" class="btn btn-default" name="add" value="add">新增</a>
+                    </form>
                     <tr>
                         <td>
                             標題
@@ -139,14 +149,22 @@
                         <td>
                             內容
                         </td>
+                        <td>
+                            功能
+                        </td>
                     </tr>
                     <#list articles as item>
                         <tr>
                             <td>
-                                ${item.id}
+                                ${item.title}
                             </td>
                             <td>
                                 ${item.content}
+                            </td>
+                            <td>
+                                <a href="/article/update?id=${item.id}" class="btn btn-default" name="update" >修改</a>
+
+                                <a href="/article/delete?id=${item.id}" class="btn btn-primary" name="delete" >刪除</a>
                             </td>
                         </tr>
                     </#list>

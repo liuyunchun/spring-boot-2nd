@@ -131,6 +131,19 @@
     <section class="section wb">
         <div class="container">
             <div class="row">
+                <form method="get" action="/member/findsyscode">
+                    id:
+                    <input type="text" name="id"/>
+                <#--<br>-->
+                <#--name:-->
+                <#--<input type="text" name="name"/>-->
+                <#--<br>-->
+                <#--email:-->
+                <#--<input type="text" name="email"/>-->
+                    <button type="submit" class="btn btn-default" name="find" value="find">查詢</button>
+
+                    <a href="/member/add" class="btn btn-default" name="add" value="add">新增</a>
+                </form>
                 <table class="table" >
                     <tr>
                         <td>
@@ -141,6 +154,9 @@
                         </td>
                         <td>
                             信箱
+                        </td>
+                        <td>
+                            功能
                         </td>
                     </tr>
                     <#list members as item>
@@ -153,6 +169,11 @@
                             </td>
                             <td>
                                 ${item.email}
+                            </td>
+                            <td>
+                                <a href="/member/update?id=${item.id}" class="btn btn-default" name="update" >修改</a>
+
+                                <a href="/member/delete?id=${item.id}" class="btn btn-primary" name="delete" >刪除</a>
                             </td>
                         </tr>
                     </#list>

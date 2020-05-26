@@ -17,11 +17,11 @@ import java.util.List;
 @RequestMapping("/member")
 public class MemberController {
     @Resource
-    private MemberServiceImpl memberServiceImpl;
+    private MemberService memberService;
 
     @GetMapping("index")
     public String index(Model model){
-        List<Member> member = memberServiceImpl.findAll();
+        List<Member> member = memberService.findAll();
         model.addAttribute("members", member);
         return "/font/member/index";
     }
@@ -34,7 +34,34 @@ public class MemberController {
     @PostMapping("addmember")
     public String addMember(Model model, Member member){
         member.setCreateTime(LocalDateTime.now());
-        memberServiceImpl.insert(member);
+        memberService.insert(member);
+        return "redirect:/member/index";
+    }
+
+    @GetMapping("update")
+    public String update(Model model, Member item){
+        Member member = memberService.find(item.getId());
+        model.addAttribute("member",member);
+        return "font/member/update";
+    }
+
+    @PostMapping("updatemember")
+    public String updateMember(Model model, Member member){
+        memberService.update(member);
+        return "redirect:/member/index";
+    }
+
+    @GetMapping("findmember")
+    public String findMember(Model model, String id){
+        Member member = memberService.find(id);
+        model.addAttribute("member", member);
+        return "font/member/list";
+    }
+
+    @GetMapping("delete")
+    public String delete(Model model, Member item){
+        Member member = memberService.find(item.getId());//為何此行未寫還可以動
+        memberService.delete(member);
         return "redirect:/member/index";
     }
 }
