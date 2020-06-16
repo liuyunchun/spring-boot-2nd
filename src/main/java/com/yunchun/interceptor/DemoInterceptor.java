@@ -12,8 +12,15 @@ public class DemoInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        System.out.println("處理前");
-        return super.preHandle(request, response, handler);
+//        HttpSession session = request.getSession();
+//        boolean returnBoolea=true;
+//        if (session.getAttribute("userId") == null) {
+//            response.sendRedirect("");
+//            returnBoolea=false;
+//        }
+//        System.out.println("處理前");
+//        return returnBoolea;
+        return true;
     }
 
     @Override

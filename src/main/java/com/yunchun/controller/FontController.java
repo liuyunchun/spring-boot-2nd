@@ -3,10 +3,19 @@ package com.yunchun.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller("com.yunchun.controller.FontController")
 public class FontController {
     @GetMapping("/index")
-    public String indexForm() {
+    public String indexForm(HttpServletRequest request) {
+//        user=userrepository.findByuserId();
+//        if(user!=null){
+//            HttpSession session=request.getSession();
+//            session.setAttribute("userId",user.getId());
+//        }else{
+//
+//        }
         return "font/index";
     }
     //列出文章 BY 次數(count)
