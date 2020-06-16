@@ -131,7 +131,7 @@
     <section class="section wb">
         <div class="container">
             <div class="row">
-                <form method="get" action="/syscode/findsyscode">
+                <form method="get" action="/syscode/find-syscode">
                     id:
                     <input type="text" name="id"/>
                     <#--<br>-->
@@ -142,7 +142,7 @@
                     <#--<input type="text" name="description"/>-->
                     <button type="submit" class="btn btn-default" name="find" value="find">查詢</button>
 
-                    <a href="/syscode/add" class="btn btn-default" name="add" value="add">新增</a>
+                    <a href="/syscode/add" class="btn btn-danger" name="add" value="add">新增</a>
                 </form>
                 <table class="table" >
                     <tr>
@@ -159,7 +159,7 @@
                             功能
                         </td>
                     </tr>
-                    <#list syscodes as item>
+                    <#list pageResult.content as item>
                         <tr>
                             <td>
                                 ${item.id}
@@ -178,6 +178,21 @@
                         </tr>
                     </#list>
                 </table>
+                <#assign totalPages = pageResult.totalPages>
+                <#assign totalElements = pageResult.totalElements>
+                <#assign number = pageResult.number>
+                <#assign first = pageResult.first>
+                <#assign last = pageResult.last>
+                    <#--上一页-->
+                <#if first>
+                    <li class="page-item">
+                        <a class="page-link" href="#">上一頁</a>
+                    </li>
+                <#else>
+                    <li class="page-item">
+                        <a class="page-link" href="wotuView?page=${number-1}&size=3">上一頁</a>
+                    </li>
+                </#if>
             </div><!-- end row -->
         </div><!-- end container -->
     </section>

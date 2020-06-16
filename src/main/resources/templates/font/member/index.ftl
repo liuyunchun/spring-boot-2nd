@@ -131,7 +131,7 @@
     <section class="section wb">
         <div class="container">
             <div class="row">
-                <form method="get" action="/member/findsyscode">
+                <form method="get" action="/member/find-syscode">
                     id:
                     <input type="text" name="id"/>
                 <#--<br>-->

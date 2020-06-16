@@ -3,6 +3,9 @@ package com.yunchun.service.impl;
 import com.yunchun.domain.SysCode;
 import com.yunchun.repository.SysCodeRepository;
 import com.yunchun.service.SysCodeService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service("com.yunchun.service.impl.SysCodeServiceImpl")
@@ -21,4 +24,18 @@ public class SysCodeServiceImpl extends GenericServiceImpl<SysCode, SysCodeRepos
         return getRepository().findOneById(id);
     }
 
+    @Override
+    public Page<SysCode> getPagedSysCodes(int page, int size) {
+        Page<SysCode> pageResult = getRepository().findAll(
+                PageRequest.of(page,  // 查詢的頁數，從0起算
+                        size, // 查詢的每頁筆數
+                        Sort.by("id_").ascending())); //依id_欄位降冪排序
+//        pageResult.getNumberOfElements(); // 本頁筆數
+//        pageResult.getSize();             // 每頁筆數
+//        pageResult.getTotalElements();    // 全部筆數
+//        pageResult.getTotalPages();       // 全部頁數
+//        List<SysCode> messageList = pageResult.getContent();
+
+        return pageResult;
+    }
 }

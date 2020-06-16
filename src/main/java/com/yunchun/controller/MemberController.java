@@ -31,7 +31,7 @@ public class MemberController {
         return "font/member/add";
     }
 
-    @PostMapping("addmember")
+    @PostMapping("add-member")
     public String addMember(Model model, Member member){
         member.setCreateTime(LocalDateTime.now());
         memberService.insert(member);
@@ -45,13 +45,13 @@ public class MemberController {
         return "font/member/update";
     }
 
-    @PostMapping("updatemember")
+    @PostMapping("update-member")
     public String updateMember(Model model, Member member){
         memberService.update(member);
         return "redirect:/member/index";
     }
 
-    @GetMapping("findmember")
+    @GetMapping("find-member")
     public String findMember(Model model, String id){
         Member member = memberService.find(id);
         model.addAttribute("member", member);

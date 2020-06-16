@@ -131,18 +131,18 @@
     <section class="section wb">
         <div class="container">
             <div class="row">
-                <form method="post" action="/member/updatemember">
+                <form method="post" action="/member/update-member">
                     id:
-                    <input type="text" name="id"/>
+                    <input type="text" name="id" value="${member.id}"/>
                     <br>
                     password:
-                    <input type="text" name="password"/>
+                    <input type="text" name="password" value="${member.password}"/>
                     <br>
                     name:
-                    <input type="text" name="name"/>
+                    <input type="text" name="name" value="${member.name}"/>
                     <br>
                     e-mail:
-                    <input type="text" name="email"/>
+                    <input type="text" name="email" value="${member.email}"/>
 
                     <button type="submit" name="update" value="update">修改</button>
                 </form>

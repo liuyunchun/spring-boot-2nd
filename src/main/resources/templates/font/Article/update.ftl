@@ -131,15 +131,15 @@
     <section class="section wb">
         <div class="container">
             <div class="row">
-                <form method="post" action="/article/updatearticle">
+                <form method="post" action="/article/update-article">
                     title:
-                    <input type="text" name="title"/>
+                    <input type="text" name="title" value="${article.title}"/>
                     <br>
                     <#--category:-->
                     <#--<input type="text" name="category"/>-->
                     <#--<br>-->
                     content:
-                    <input type="text" name="content"/>
+                    <input type="text" name="content" value="${article.content}"/>
 
                     <button type="submit" name="update" value="update">送出</button>
                 </form>

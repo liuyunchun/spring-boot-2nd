@@ -33,7 +33,7 @@ public class ArticleController {
         return "font/article/add";
     }
 
-    @PostMapping("addarticle")
+    @PostMapping("add-article")
     public String addArticle(Model model, Article article){
         article.setId(Integer.toString(randomId()));
         article.setType(Type.ARTICLE);
@@ -49,13 +49,13 @@ public class ArticleController {
         return "font/article/update";
     }
 
-    @PostMapping("updatearticle")
+    @PostMapping("update-article")
     public String updateArticle(Model model, Article article){
         articleService.update(article);
         return "redirect:/article/index";
     }
 
-    @GetMapping("findarticle")
+    @GetMapping("find-article")
     public String findArticle(Model model, String id){
         Article article = articleService.find(id);
         model.addAttribute("article", article);

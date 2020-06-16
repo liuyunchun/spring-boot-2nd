@@ -140,7 +140,7 @@
                     <#--<input type="text" name="content"/>-->
                         <button type="submit" class="btn btn-default" name="find" value="find">查詢</button>
 
-                        <a href="/article/add" class="btn btn-default" name="add" value="add">新增</a>
+                        <a href="/article/add" class="btn btn-danger" name="add" value="add">新增</a>
                     </form>
                     <tr>
                         <td>

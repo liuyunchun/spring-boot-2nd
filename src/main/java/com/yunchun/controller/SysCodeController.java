@@ -4,6 +4,7 @@ import com.yunchun.domain.SysCode;
 import com.yunchun.repository.SysCodeRepository;
 import com.yunchun.service.SysCodeService;
 import com.yunchun.service.impl.SysCodeServiceImpl;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,8 +24,15 @@ public class SysCodeController {
 
     @GetMapping("index")
     public String index(Model model){
-        List<SysCode> syscodes = sysCodeService.findAll();
-        model.addAttribute("syscodes", syscodes);
+        Page<SysCode> pageResult = sysCodeService.getPagedSysCodes(0,3);
+        model.addAttribute("pageResult", pageResult);
+        return "/font/syscode/index";
+    }
+
+    @GetMapping("wotuView")
+    public String wotuView(Model model, int number,int size){
+        Page<SysCode> pageResult = sysCodeService.getPagedSysCodes(number,size);
+        model.addAttribute("pageResult",pageResult);
         return "/font/syscode/index";
     }
 
@@ -36,7 +44,7 @@ public class SysCodeController {
     //redirect
     //forward
 
-    @PostMapping("addsyscode")
+    @PostMapping("add-syscode")
     public String addSyscode(Model model, SysCode syscode){
         sysCodeService.insert(syscode);
         return "redirect:/syscode/index";
@@ -49,13 +57,13 @@ public class SysCodeController {
         return "font/syscode/update";
     }
 
-    @PostMapping("updatesyscode")
+    @PostMapping("update-syscode")
     public String updateSyscode(Model model, SysCode syscode){
         sysCodeService.update(syscode);
         return "redirect:/syscode/index";
     }
 
-    @GetMapping("findsyscode")
+    @GetMapping("find-syscode")
     public String findSyscode(Model model, String id){
         SysCode syscode = sysCodeService.find(id);
         model.addAttribute("syscode", syscode);

@@ -131,15 +131,15 @@
     <section class="section wb">
         <div class="container">
             <div class="row">
-                <form method="post" action="/syscode/updatesyscode">
+                <form method="post" action="/syscode/update-syscode">
                     id:
                     <input type="text" name="id" value="${syscode.id}"/>
                     <br>
                     code:
-                    <input type="text" name="code" value="${syscode.code}"/>
+                    <input type="text" name="code" value="${syscode.code!}"/>
                     <br>
                     description:
-                    <input type="text" name="description" value="${syscode.description}"/>
+                    <input type="text" name="description" value="${syscode.description!}"/>
 
                     <button type="submit" name="update" value="update">修改</button>
                 </form>

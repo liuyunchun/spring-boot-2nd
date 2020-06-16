@@ -131,7 +131,7 @@
     <section class="section wb">
         <div class="container">
             <div class="row">
-                <form method="post" action="/member/addmember">
+                <form method="post" action="/member/add-member">
                     id:
                     <input type="text" name="id"/>
                     <br>

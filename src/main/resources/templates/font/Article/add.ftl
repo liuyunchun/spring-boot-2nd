@@ -131,7 +131,7 @@
     <section class="section wb">
         <div class="container">
             <div class="row">
-                <form method="post" action="/article/addarticle">
+                <form method="post" action="/article/add-article">
                     title:
                     <input type="text" name="title"/>
                     <br>

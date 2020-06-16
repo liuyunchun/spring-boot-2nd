@@ -131,7 +131,7 @@
     <section class="section wb">
         <div class="container">
             <div class="row">
-                <form method="post" action="/syscode/addsyscode">
+                <form method="post" action="/syscode/add-syscode">
                     id:
                     <input type="text" name="id"/>
                     <br>
