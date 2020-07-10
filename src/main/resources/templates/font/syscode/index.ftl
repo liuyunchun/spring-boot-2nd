@@ -134,12 +134,9 @@
                 <form method="get" action="/syscode/find-syscode">
                     id:
                     <input type="text" name="id"/>
-                    <#--<br>-->
-                    <#--code:-->
-                    <#--<input type="text" name="code"/>-->
-                    <#--<br>-->
-                    <#--description:-->
-                    <#--<input type="text" name="description"/>-->
+                    <br>
+                    code:
+                    <input type="text" name="code"/>
                     <button type="submit" class="btn btn-default" name="find" value="find">查詢</button>
 
                     <a href="/syscode/add" class="btn btn-danger" name="add" value="add">新增</a>

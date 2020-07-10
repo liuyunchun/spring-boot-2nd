@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -30,7 +31,7 @@ public class ArticleController {
 
     @GetMapping("add")
     public String add(){
-        return "font/article/add";
+        return "/font/article/add";
     }
 
     @PostMapping("add-article")
@@ -56,12 +57,22 @@ public class ArticleController {
     }
 
     @GetMapping("find-article")
-    public String findArticle(Model model, String id){
-        Article article = articleService.find(id);
-        model.addAttribute("article", article);
+    public String findArticle(Model model, Article article){
+        List<Article> result = new ArrayList<Article>();
+        if(!article.getTitle().isEmpty() && !article.getContent().isEmpty()){
+            result = articleService.findAllByTitleAndContent(article);
+        }else if(!article.getTitle().isEmpty()){
+            result = articleService.findAllByTitle(article);
+        }else if(!article.getContent().isEmpty()){
+            result = articleService.findAllByContent(article);
+        }else{
+            result = articleService.findAll();
+        }
+
+        model.addAttribute("result", result);
         return "font/article/list";
     }
-
+//CRUD like 語法
     @GetMapping("delete")
     public String delete(Model model, Article item){
         Article article = articleService.find(item.getId());//為何此行未寫還可以動

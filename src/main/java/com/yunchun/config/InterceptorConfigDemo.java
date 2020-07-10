@@ -1,16 +1,17 @@
 package com.yunchun.config;
 
-import com.yunchun.interceptor.Interceptor;
+import com.yunchun.interceptor.DemoInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.annotation.Resource;
 
-@Configuration
-public class InterceptorConfig implements WebMvcConfigurer {
+//@Configuration
+public class InterceptorConfigDemo implements WebMvcConfigurer {
+
     @Resource
-    private Interceptor interceptor;
+    private DemoInterceptor interceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -26,7 +27,6 @@ public class InterceptorConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/upload/**")
                 .excludePathPatterns("/login")
                 .excludePathPatterns("/index")
-                .excludePathPatterns("/loginCheck")
                 .excludePathPatterns("/member/add")
                 .excludePathPatterns("/article/index");
 

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -18,6 +19,7 @@ import java.util.List;
 public class MemberController {
     @Resource
     private MemberService memberService;
+
 
     @GetMapping("index")
     public String index(Model model){
@@ -28,7 +30,7 @@ public class MemberController {
 
     @GetMapping("add")
     public String add(){
-        return "font/member/add";
+        return "/font/member/add";
     }
 
     @PostMapping("add-member")
@@ -52,9 +54,27 @@ public class MemberController {
     }
 
     @GetMapping("find-member")
-    public String findMember(Model model, String id){
-        Member member = memberService.find(id);
-        model.addAttribute("member", member);
+    public String findMember(Model model, Member member){
+        List<Member> result = new ArrayList<Member>();
+        if(!member.getId().isEmpty() && !member.getName().isEmpty() && !member.getEmail().isEmpty()){
+            result = memberService.findAllById_Name_Email(member);
+        }else if(!member.getId().isEmpty() && !member.getName().isEmpty()){
+            result = memberService.findAllByIdAndName(member);
+        }else if(!member.getId().isEmpty() && !member.getEmail().isEmpty()){
+            result = memberService.findAllByIdAndEmail(member);
+        }else if(!member.getName().isEmpty() && !member.getEmail().isEmpty()){
+            result = memberService.findAllByNameAndEmail(member);
+        }else if(!member.getId().isEmpty()){
+            result = memberService.findAllById(member.getId());
+        }else if(!member.getName().isEmpty()){
+            result = memberService.findAllByName(member);
+        }else if(!member.getEmail().isEmpty()){
+            result = memberService.findAllByEmail(member);
+        }else{
+            result = memberService.findAll();
+        }
+
+        model.addAttribute("result", result);
         return "font/member/list";
     }
 

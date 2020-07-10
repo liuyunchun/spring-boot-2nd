@@ -1,22 +1,54 @@
 package com.yunchun.controller;
 
+import com.yunchun.domain.Member;
+import com.yunchun.service.MemberService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller("com.yunchun.controller.FontController")
 public class FontController {
+
+    @Resource
+    private MemberService memberService;
+
+    @GetMapping("/login")
+    public String loginForm() {
+        return "/font/login";
+    }
+
     @GetMapping("/index")
-    public String indexForm(HttpServletRequest request) {
-//        user=userrepository.findByuserId();
+    public String indexForm(HttpServletRequest request, Model model, Member member) {
+//        String nextPage = "/font/index";
+//
+//        Member user = memberService.find(member.getId());
 //        if(user!=null){
 //            HttpSession session=request.getSession();
 //            session.setAttribute("userId",user.getId());
 //        }else{
-//
+//            nextPage = "redirect:/login";
 //        }
-        return "font/index";
+//        return nextPage;
+        return "/font/index";
+    }
+
+    @PostMapping("/loginCheck")
+    public String loginCheck(HttpServletRequest request, Model model, Member member) {
+        String nextPage = "redirect:/index";
+
+        Member user = memberService.find(member.getId());
+        if(user!=null){
+            HttpSession session=request.getSession();
+            session.setAttribute("userId",user.getId());
+        }else{
+            nextPage = "redirect:/login";
+        }
+        return nextPage;
     }
     //列出文章 BY 次數(count)
     //點擊後要載入文章內容(get詳細&留言)

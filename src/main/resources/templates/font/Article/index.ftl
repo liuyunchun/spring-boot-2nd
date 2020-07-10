@@ -131,18 +131,17 @@
     <section class="section wb">
         <div class="container">
             <div class="row">
-                <table class="table" >
-                    <form method="get" action="/article/find-syscode">
-                        title:
-                        <input type="text" name="title"/>
-                        &nbsp;
-                    <#--<br>-->
-                    <#--content:-->
-                    <#--<input type="text" name="content"/>-->
-                        <button type="submit" class="btn btn-default" name="find" value="find">查詢</button>
-                        &nbsp;
-                        <a href="/article/add" class="btn btn-default" name="add" value="add">新增</a>
+                <form method="get" action="/article/find-article">
+                    title:
+                    <input type="text" name="title"/>
+                    <br>
+                    content:
+                    <input type="text" name="content"/>
+                    <button type="submit" class="btn btn-default" name="find" value="find">查詢</button>
+
+                    <a href="/article/add" class="btn btn-default" name="add" value="add">新增</a>
                     </form>
+                <table class="table" >
                     <tr>
                         <td>
                             標題

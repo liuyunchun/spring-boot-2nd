@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@Component("com.yunchun.interceptor.DemoInterceptor")
-public class DemoInterceptor extends HandlerInterceptorAdapter {
+@Component("com.yunchun.interceptor.Interceptor")
+public class Interceptor extends HandlerInterceptorAdapter {
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception{
         HttpSession session = request.getSession();
         boolean returnBoolean=true;
         if (session.getAttribute("userId") == null) {

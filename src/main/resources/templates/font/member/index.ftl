@@ -131,15 +131,15 @@
     <section class="section wb">
         <div class="container">
             <div class="row">
-                <form method="get" action="/member/find-syscode">
+                <form method="get" action="/member/find-member">
                     id:
                     <input type="text" name="id"/>
-                <#--<br>-->
-                <#--name:-->
-                <#--<input type="text" name="name"/>-->
-                <#--<br>-->
-                <#--email:-->
-                <#--<input type="text" name="email"/>-->
+                    <br>
+                    name:
+                    <input type="text" name="name"/>
+                    <br>
+                    email:
+                    <input type="text" name="email"/>
                     <button type="submit" class="btn btn-default" name="find" value="find">查詢</button>
 
                     <a href="/member/add" class="btn btn-default" name="add" value="add">新增</a>

@@ -8,6 +8,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("com.yunchun.service.impl.SysCodeServiceImpl")
 public class SysCodeServiceImpl extends GenericServiceImpl<SysCode, SysCodeRepository> implements SysCodeService {
 
@@ -38,4 +40,20 @@ public class SysCodeServiceImpl extends GenericServiceImpl<SysCode, SysCodeRepos
 
         return pageResult;
     }
+
+    @Override
+    public List<SysCode> findByIdAndCode(SysCode syscode) {
+        return getRepository().findByIdAndCode(syscode);
+    }
+
+    @Override
+    public List<SysCode> findAllById(String id) {
+        return getRepository().findAllById(id);
+    }
+
+    @Override
+    public List<SysCode> findAllByCode(String code) {
+        return getRepository().findAllByCode(code);
+    }
+
 }

@@ -131,15 +131,15 @@
     <section class="section wb">
         <div class="container">
             <div class="row">
-                <form method="get" action="/member/findsyscode">
+                <form method="get" action="/member/find-member">
                     id:
                     <input type="text" name="id"/>
-                <#--<br>-->
-                <#--name:-->
-                <#--<input type="text" name="name"/>-->
-                <#--<br>-->
-                <#--email:-->
-                <#--<input type="text" name="email"/>-->
+                    <br>
+                    name:
+                    <input type="text" name="name"/>
+                    <br>
+                    email:
+                    <input type="text" name="email"/>
                     <button type="submit" class="btn btn-default" name="find" value="find">查詢</button>
 
                     <a href="/member/add" class="btn btn-default" name="add" value="add">新增</a>
@@ -159,22 +159,24 @@
                             功能
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                        ${member.id}
-                        </td>
-                        <td>
-                        ${member.name}
-                        </td>
-                        <td>
-                        ${member.email}
-                        </td>
-                        <td>
-                            <a href="/member/update?id=${member.id}" class="btn btn-default" name="update" >修改</a>
+                    <#list result as item>
+                        <tr>
+                            <td>
+                            ${item.id}
+                            </td>
+                            <td>
+                            ${item.name}
+                            </td>
+                            <td>
+                            ${item.email}
+                            </td>
+                            <td>
+                                <a href="/member/update?id=${item.id}" class="btn btn-default" name="update" >修改</a>
 
-                            <a href="/member/delete?id=${member.id}" class="btn btn-primary" name="delete" >刪除</a>
-                        </td>
-                    </tr>
+                                <a href="/member/delete?id=${item.id}" class="btn btn-primary" name="delete" >刪除</a>
+                            </td>
+                        </tr>
+                    </#list>
                 </table>
             </div><!-- end row -->
         </div><!-- end container -->
