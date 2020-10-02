@@ -15,10 +15,10 @@ public class Interceptor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception{
         HttpSession session = request.getSession();
         boolean returnBoolean=true;
-        if (session.getAttribute("userId") == null) {
-            response.sendRedirect("/login");
-            returnBoolean=false;
-        }
+//        if (session.getAttribute("userId") == null) {
+//            response.sendRedirect("/login");
+//            returnBoolean=false;
+//        }
         System.out.println("處理前");
         return returnBoolean;
 //        return true;

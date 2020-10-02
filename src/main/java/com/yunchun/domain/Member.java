@@ -36,6 +36,6 @@ public class Member {
     private LocalDateTime createTime;
 
     //OneToMany
-    @OneToMany(mappedBy = "id")
-    private List<Member> articles;
+    @OneToMany(mappedBy = "author")
+    private List<Article> articles;
 }

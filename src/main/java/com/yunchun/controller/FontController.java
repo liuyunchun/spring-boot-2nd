@@ -22,18 +22,15 @@ public class FontController {
         return "/font/login";
     }
 
+    @GetMapping("/logout")
+    public String logoutForm(HttpServletRequest request) {
+        HttpSession session=request.getSession();
+        session.invalidate();
+        return "/font/index";
+    }
+
     @GetMapping("/index")
-    public String indexForm(HttpServletRequest request, Model model, Member member) {
-//        String nextPage = "/font/index";
-//
-//        Member user = memberService.find(member.getId());
-//        if(user!=null){
-//            HttpSession session=request.getSession();
-//            session.setAttribute("userId",user.getId());
-//        }else{
-//            nextPage = "redirect:/login";
-//        }
-//        return nextPage;
+    public String indexForm(HttpServletRequest request) {
         return "/font/index";
     }
 
@@ -42,7 +39,7 @@ public class FontController {
         String nextPage = "redirect:/index";
 
         Member user = memberService.find(member.getId());
-        if(user!=null){
+        if(user!=null && user.getPassword().compareTo(member.getPassword()) == 0){
             HttpSession session=request.getSession();
             session.setAttribute("userId",user.getId());
         }else{

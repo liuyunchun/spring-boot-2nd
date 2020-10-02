@@ -50,8 +50,8 @@ public class Article {
     private LocalDateTime createTime;
 
     @ManyToOne
-    @JoinColumn(name = "creater_")
-    private Member creater;
+    @JoinColumn(name = "author_")
+    private Member author;
 
 //    @Column(name = "create_id_")
 //    private String createId;

@@ -70,13 +70,13 @@ public class ArticleRepositoryTest {
         article.setCategory(syscode4);
         article.setContent("Mamo的19th新專光射す方へ根本神仙專輯！！");
         article.setCount(0);
-        article.setCreater(member_b);
+        article.setAuthor(member_b);
         article.setCreateTime(LocalDateTime.now());
 
         articleRepository.save(article);
 
         Article article2 = articleRepository.findOneById("A0001");
-        System.out.println(article2.getCreater().getName());
+        System.out.println(article2.getAuthor().getName());
 
     }
 }

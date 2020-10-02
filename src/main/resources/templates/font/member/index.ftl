@@ -130,55 +130,55 @@
 
     <section class="section wb">
         <div class="container">
-            <div class="row">
-                <form method="get" action="/member/find-member">
-                    id:
-                    <input type="text" name="id"/>
-                    <br>
-                    name:
-                    <input type="text" name="name"/>
-                    <br>
-                    email:
-                    <input type="text" name="email"/>
-                    <button type="submit" class="btn btn-default" name="find" value="find">查詢</button>
+            <div class="row align-items-center">
+                <div class="col-3"></div>
+                <div class="col">
+                    <form method="get" action="/member/find-member">
+                        id:
+                        <input type="text" name="id"/>
+                        <br>
+                        name:
+                        <input type="text" name="name"/>
+                        <br>
+                        email:
+                        <input type="text" name="email"/>
+                        <button type="submit" class="btn btn-default" name="find" value="find">查詢</button>
 
-                    <a href="/member/add" class="btn btn-default" name="add" value="add">新增</a>
-                </form>
-                <table class="table" >
-                    <tr>
-                        <td>
-                            ID
-                        </td>
-                        <td>
-                            暱稱
-                        </td>
-                        <td>
-                            信箱
-                        </td>
-                        <td>
-                            功能
-                        </td>
-                    </tr>
-                    <#list members as item>
-                        <tr>
-                            <td>
-                                ${item.id}
-                            </td>
-                            <td>
-                                ${item.name}
-                            </td>
-                            <td>
-                                ${item.email}
-                            </td>
-                            <td>
-                                <a href="/member/update?id=${item.id}" class="btn btn-default" name="update" >修改</a>
-
-                                <a href="/member/delete?id=${item.id}" class="btn btn-primary" name="delete" >刪除</a>
-                            </td>
-                        </tr>
-                    </#list>
-                </table>
+                        <a href="/member/add" class="btn btn-default" name="add" value="add">新增</a>
+                    </form>
+                </div>
             </div><!-- end row -->
+            <table class="table table-bordered table-hover" summary="資料清單">
+                <caption class="text-center sr-only">資料清單</caption>
+                <thead>
+                <tr>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">暱稱</th>
+                    <th class="text-center">信箱</th>
+                    <th class="text-center">功能</th>
+                </tr>
+                </thead>
+                <tbody class="tbody">
+				<#list members as item>
+                <tr>
+                    <td data-label="ID｜" class="text-center">
+                        ${item.id}
+                    </td>
+                    <td data-label="暱稱｜" class="text-center">
+                        ${item.name}
+                    </td>
+                    <td data-label="信箱｜" class="text-center">
+                        ${item.email}
+                    </td>
+                    <td data-label="功能｜" class="text-center">
+                        <a href="/member/update?id=${item.id}" class="btn btn-default" name="update" >修改</a>
+
+                        <a href="/member/delete?id=${item.id}" class="btn btn-primary" name="delete" >刪除</a>
+                    </td>
+                </tr>
+                </#list>
+                </tbody>
+            </table>
         </div><!-- end container -->
     </section>
 

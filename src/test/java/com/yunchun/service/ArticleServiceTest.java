@@ -71,7 +71,7 @@ public class ArticleServiceTest {
         article.setCategory(syscode4);
         article.setContent("Mamo的BLAZING演唱會BD居然找到自己了！！");
         article.setCount(0);
-        article.setCreater(member2);
+        article.setAuthor(member2);
         article.setCreateTime(LocalDateTime.now());
 
         articleService.insert(article);
@@ -89,7 +89,7 @@ public class ArticleServiceTest {
         content.setCategory(syscode4);
         content.setContent("隔天的見面會本人也有出現在阿官的照片上，人生第一次追星行程無憾QWQ");
         content.setCount(0);
-        content.setCreater(member2);
+        content.setAuthor(member2);
         content.setCreateTime(LocalDateTime.now());
 
         articleService.insert(content);

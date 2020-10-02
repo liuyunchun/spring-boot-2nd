@@ -79,6 +79,17 @@
 
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <div class="topsearch text-right">
+                        <#if !Session.userId?? >
+                            <a href="/login" name="login" >Log in</a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <#else>
+                            <a href="/logout" name="logout" >Log out</a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/member/index" name="member" >Member</a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="/article/index" name="article" >All Article</a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </#if>
                         <a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-search"></i> Search</a>
                     </div><!-- end search -->
                 </div><!-- end col -->

@@ -83,47 +83,6 @@
         </div><!-- end header-logo -->
     </div><!-- end topbar -->
 
-    <div class="header-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="logo">
-                        <a href="/index"><img src="images/version/garden-logo.png" alt=""></a>
-                    </div><!-- end logo -->
-                </div>
-            </div><!-- end row -->
-        </div><!-- end header-logo -->
-    </div><!-- end header -->
-
-    <header class="header">
-        <div class="container">
-            <nav class="navbar navbar-inverse navbar-toggleable-md">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Forest Timemenu" aria-controls="Forest Timemenu" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-md-center" id="Forest Timemenu">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link color-green-hover" href="/index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link color-green-hover" href="/category">Gardening</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link color-green-hover" href="/category">Outdoor Living</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link color-green-hover" href="/category">Indoor Living</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link color-green-hover" href="/category">Shopping Guides</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div><!-- end container -->
-    </header><!-- end header -->
-
 
     <section class="section wb">
         <div class="container">
@@ -144,44 +103,6 @@
             </div><!-- end row -->
         </div><!-- end container -->
     </section>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="widget">
-                        <div class="footer-text text-center">
-                            <a href="/index"><img src="images/version/garden-footer-logo.png" alt="" class="img-fluid"></a>
-                            <p>Forest Time is a personal blog for handcrafted, cameramade photography content, fashion styles from independent creatives around the world.</p>
-                            <div class="social">
-                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fa fa-instagram"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Google Plus"><i class="fa fa-google-plus"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest"></i></a>
-                            </div>
-
-                            <hr class="invis">
-
-                            <div class="newsletter-widget text-center">
-                                <form class="form-inline">
-                                    <input type="text" class="form-control" placeholder="Enter your email address">
-                                    <button type="submit" class="btn btn-primary">Subscribe <i class="fa fa-envelope-open-o"></i></button>
-                                </form>
-                            </div><!-- end newsletter -->
-                        </div><!-- end footer-text -->
-                    </div><!-- end widget -->
-                </div><!-- end col -->
-            </div>
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <br>
-                    <br>
-                    <div class="copyright">&copy; Forest Time. Design: <a href="http://html.design">HTML Design</a>.</div>
-                </div>
-            </div>
-        </div><!-- end container -->
-    </footer><!-- end footer -->
 
     <div class="dmtop">Scroll to Top</div>
 
