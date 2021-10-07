@@ -92,6 +92,44 @@
                     <form method="post" action="/callapi" class="align-self-center">
                         <button type="submit" class="btn btn-default" name="check" value="check">取資料</button>
                     </form>
+                    <table class="table" >
+                        <tr>
+                            <td>
+                                測站編號
+                            </td>
+                            <td>
+                                緯度
+                            </td>
+                            <td>
+                                經度
+                            </td>
+                            <td>
+                                地點名稱
+                            </td>
+                            <td>
+                                觀測時間
+                            </td>
+                        </tr>
+                        <#list data as item>
+                            <tr>
+                                <td>
+                                    ${item.stationId}
+                                </td>
+                                <td>
+                                    ${item.lat}
+                                </td>
+                                <td>
+                                    ${item.lon}
+                                </td>
+                                <td>
+                                    ${item.locationName}
+                                </td>
+                                <td>
+                                    ${item.obsTime}
+                                </td>
+                            </tr>
+                        </#list>
+                    </table>
                 </div>
                 <div class="col"></div>
             </div><!-- end row -->
