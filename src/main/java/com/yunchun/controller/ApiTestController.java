@@ -1,5 +1,6 @@
 package com.yunchun.controller;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yunchun.domain.WeatherAPI;
 import org.h2.util.json.JSONObject;
@@ -10,6 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.io.*;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Controller("com.yunchun.controller.ApiTestController")
 public class ApiTestController {
@@ -34,6 +38,8 @@ public class ApiTestController {
             }
 
             ObjectMapper objectMapper = new ObjectMapper();
+//            List<WeatherAPI> result = objectMapper.readValue(sb, new TypeReference<List<WeatherAPI>>(){});
+            List<WeatherAPI> result = objectMapper.readValue(sb, objectMapper.getTypeFactory().constructCollectionType(List.class, WeatherAPI.class));
             WeatherAPI data = objectMapper.readValue(sb.toString(), WeatherAPI.class);
 
             model.addAttribute("data", data);

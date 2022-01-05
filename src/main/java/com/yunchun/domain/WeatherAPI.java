@@ -1,5 +1,6 @@
 package com.yunchun.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
@@ -9,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
+import java.util.Map;
 
 @Entity
 @Data
@@ -16,24 +18,9 @@ import java.time.LocalDateTime;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class WeatherAPI {
 
-    @Id
-    @JsonProperty("stationId")
-    @Column(name = "station_id_")
-    private Double stationId;
+    @JsonIgnore
+    private Boolean success;
+    private Map<String, String> result;
 
-    @JsonProperty("lat")
-    @Column(name = "lat_")
-    private Double lat;
 
-    @JsonProperty("lon")
-    @Column(name = "lon_")
-    private String lon;
-
-    @JsonProperty("locationName")
-    @Column(name = "location_name_")
-    private String locationName;
-
-    @JsonProperty("obsTime")
-    @Column(name = "obs_time_")
-    private LocalDateTime obsTime;
 }
